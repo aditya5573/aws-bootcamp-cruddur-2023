@@ -1,7 +1,7 @@
 import './App.css';
 
 import HomeFeedPage from './pages/HomeFeedPage';
-import NotificationsFeedPage from './pages/NotifiactionsFeedPage';
+import NotificationsFeedPage from './pages/NotificationsFeedPage';
 import UserFeedPage from './pages/UserFeedPage';
 import SignupPage from './pages/SignupPage';
 import SigninPage from './pages/SigninPage';
@@ -18,7 +18,7 @@ import {
 const router = createBrowserRouter([
   {
     path: "/notifications",
-    element: <NotificatinsFeedPage />
+    element: <NotificationsFeedPage />
   },
   {
     path: "/@:handle",
