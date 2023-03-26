@@ -50,13 +50,11 @@ from flask import got_request_exception
 # Initialize tracing and an exporter that can send data to Honeycomb
 provider = TracerProvider()
 processor = BatchSpanProcessor(OTLPSpanExporter())
-provider.add_span_processor(processor)
-
-       
+provider.add_span_processor(processor)  
 
 # X-RAY ----------
- xray_url = os.getenv("AWS_XRAY_URL")
- xray_recorder.configure(service='backend flask', dynamic_naming=xray_url)
+xray_url = os.getenv("AWS_XRAY_URL")
+xray_recorder.configure(service='backend flask', dynamic_naming=xray_url)
 
 # OTEL --------
 # Show this in the logs whithin the backend-flask app (STDOUT)
@@ -69,7 +67,7 @@ tracer = trace.get_tracer(__name__)
 app = Flask(__name__)
 
 # X-RAY ----------
- XRayMiddleware(app, xray_recorder)
+XRayMiddleware(app, xray_recorder)
 
 # HoneyComb --------
 # Initialize automatic instrumentation with Flask
@@ -88,6 +86,7 @@ cors = CORS(
   methods="OPTIONS,GET,HEAD,POST"
 )
 
+# CloudWatch Logs ---------
 #@app.after_request
 #def after_request(response):
 #    timestamp = strftime('[%Y-%b-%d %H:%M]')
