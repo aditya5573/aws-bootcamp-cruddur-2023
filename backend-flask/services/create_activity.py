@@ -65,11 +65,4 @@ class CreateActivity:
         "{expires_at}"
       )
       """
-      query_commit(sql)
-      try:
-        conn = pool.connection()
-        cur = conn.cursor()
-        cur.execute(sql)
-        conn.commit()
-      except Exception as err:
-        print_sql_err(err)
+      #query_commit(sql)
